@@ -2,9 +2,9 @@
 
 class User
 {
-	private string $name;
-	private string $pass;
-	private string $phone;
+	private $name;
+	private $pass;
+	private $phone;
 
 
 	public function setName( $name )
