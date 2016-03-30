@@ -6,16 +6,16 @@ require_once "user-class.php";
 class Login
 {
 
-	public function cadastro()
+	public function cadastro($name, $pass, $phone)
 	{
 
 		$user = new User();
 
-		$user->setName( $_POST['name'] );
-		$user->setPass( $_POST['pass'] );
-		$user->setPhone( $_POST['phone'] );
+		$user->setName( $name );
+		$user->setPass( $pass );
+		$user->setPhone( $phone);
 
-		new $pdo = new ConnectPDO();
+		$pdo = new ConnectPDO();
 
 		$std = $pdo->db->prepare( "INSERT into (name, pass, phone) VALUES (:name, :pass, :phone)");
 		$std->bindParam(':name', $user->getName(), PDO::PARAM_STR);
